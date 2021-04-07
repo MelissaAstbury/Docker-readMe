@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  app:
+    build: .
+    stdin_open: true
+    tty: true
+    environment:
+      - REDIS_URL=redis://redis-server
+    depends_on:
+      - redis-server
+
+  redis-server:
+    image: redis:alpine
